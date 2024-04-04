@@ -2,6 +2,7 @@ package memory
 
 import (
 	"budgeteer/internal/model"
+	"context"
 	"sync"
 )
 
@@ -10,7 +11,7 @@ type Repository struct {
 	data map[string]*model.Expense
 }
 
-func New() (*Repository, error) {
+func New(ctx context.Context) (*Repository, error) {
 	return &Repository{}, nil
 }
 

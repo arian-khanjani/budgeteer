@@ -1,13 +1,15 @@
 package repository
 
 import (
+	"context"
 	"errors"
 )
 
 // TODO: hardcode queries!
 
 type Repository interface {
-	New() (Repository, error)
+	New(ctx context.Context) (Repository, error)
+	Disconnect(ctx context.Context)
 	Create(interface{}) error
 	List() (*[]*res, error)
 	Get(string) (*res, error)
